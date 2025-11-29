@@ -1,7 +1,52 @@
-Tienda de Repuestos
 
--Descripción
-Aplicación CRUD para gestionar repuestos (Node.js + Express + MongoDB + frontend HTML/JS/CSS). Las imágenes se almacenan como URL en el documento.
+# Tienda de Repuestos
+Elaborado por WILSON MORALES
+
+Descripción:
+Aplicación CRUD para gestionar repuestos en una tienda.
+Backend: Node.js/Express + MongoDB
+Frontend: HTML/CSS/JS (Bootstrap)
+
+Requisitos:
+- Node.js (v16+)
+- npm
+- MongoDB local o Atlas
+- Visual Studio Code
+
+Pasos:
+
+1. Configurar variables de entorno
+   - Copiar .env.example a .env
+   - Editar 
+      PORT=4000
+      MONGO_URI=mongodb+srv://said_mora:dbHpN4FyvL0rXHsX@cluster0.unfavfw.mongodb.net/test?retryWrites=true&w=majority
+
+
+     - MongoDB Atlas: mongodb+srv://said_mora:dbHpN4FyvL0rXHsX@cluster0.unfavfw.mongodb.net/
+
+2. Instalar dependencias
+   npm install
+
+3. Iniciar backend
+   - Con nodemon: npm run dev
+   - Sin nodemon: npm start
+   - El backend correrá en http://localhost:4000
+
+4. Ejecutar frontend
+   - Abrir frontend/index.html con Live Server en VS Code
+
+5. Uso de la API
+   Base: /api/parts
+   - GET /api/parts → lista repuestos (opcional: search, category, page, limit)
+   - GET /api/parts/:id → repuesto por ID
+   - POST /api/parts → crear repuesto (JSON body: name, brand, category, vehicleYear, price, stock, sku, description, imageUrl)
+   - PUT /api/parts/:id → actualizar repuesto
+   - DELETE /api/parts/:id → eliminar repuesto
+
+Notas:
+- Asegurarse que MongoDB esté corriendo antes de iniciar backend.
+- El frontend utiliza fetch + async/await para manejar repuestos.
+- Incluye paginación, filtros por categoría y búsqueda por nombre/SKU.
 
 -Estructura
 - backend/
@@ -14,29 +59,3 @@ Aplicación CRUD para gestionar repuestos (Node.js + Express + MongoDB + fronten
   - index.html
   - script.js
   - styles.css
-
--Requisitos
-- Node.js >= 14
-- MongoDB Atlas (URI en .env)
-- npm install
-
--Ejecución (backend)
-1. Copiar `.env` en `backend/` con:
-PORT=4000
-MONGO_URI=mongodb+srv://said_mora:dbHpN4FyvL0rXHsX@cluster0.unfavfw.mongodb.net/test?retryWrites=true&w=majority
-
---Frontend
-
-Abrir frontend/index.html en el navegador (o servir con Live Server).
-
---Rutas de la API
-
-GET /api/parts : listar repuestos (query params: page, limit, search, category)
-
-GET /api/parts/:id : obtener repuesto por id
-
-POST /api/parts : crear (body JSON): name, brand, sku, category, vehicleYear, price, stock, description, imageUrl
-
-PUT /api/parts/:id : actualizar (body JSON, mismos campos)
-
-DELETE /api/parts/:id : eliminar
